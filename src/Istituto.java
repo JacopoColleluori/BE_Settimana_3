@@ -29,15 +29,15 @@ public class Istituto {
         listaScuola1.add(guerriero);
 
 
-        Scuola scuola1 = new Scuola(listaScuola1);
+        Scuola normali = new Scuola(listaScuola1);
 
-        //controllo metodi
-        logger.info(promossi(scuola1.getPromossi()));
-        logger.info(scuola1.getStudenti().toString());
+        //controllo metodi Classe Scuola e Studente
+        logger.info(promossi(normali.getPromossi()));
+        logger.info(normali.getStudenti().toString());
         logger.info("media di : " + giacomo.getNome() + " :" + df.format(giacomo.mediaGenerale()));
-        logger.info("Lo studente migliore di questa scuola e': " + scuola1.getStudenteMigliore() + " \n con la media di :" + df.format(scuola1.getStudenteMigliore().mediaGenerale()));
+        logger.info("Lo studente migliore di questa scuola e': " + normali.getStudenteMigliore() + " \n con la media di :" + df.format(normali.getStudenteMigliore().mediaGenerale()));
         File file = new File("C:\\epicode\\Scuola\\studenti.txt");
-        scuola1.salvaStudenti(file);
+        normali.salvaStudenti(file);
         logger.info("Voto: " + df.format(giacomo.mediaVotoMateria("Italiano")));
         logger.info("Voto: " + giacomo.promosso());
 
@@ -56,9 +56,9 @@ public class Istituto {
         listaScuola2.add(aquaMan);
 
 
-        Scuola scuola2 = new Scuola(listaScuola2);
-        Thread thread1 = new Thread(scuola1, "Scuola Falliti");
-        Thread thread2 = new Thread(scuola2, "Scuola SuperEroi");
+        Scuola superEroi = new Scuola(listaScuola2);
+        Thread thread1 = new Thread(normali, "Scuola Normali");
+        Thread thread2 = new Thread(superEroi, "Scuola SuperEroi");
         thread1.start();
         thread2.start();
 
